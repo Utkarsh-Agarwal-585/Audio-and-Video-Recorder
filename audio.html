@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>audio recorder</title>
+<style>
+	
+h1 {
+  font-weight: normal;
+  color: #001489;
+}
+
+button {
+  border: none;
+  background: #001489;
+  color: #fff;
+  font-size: 24px;
+  padding: 0.5em;
+  border-radius: 6px;
+}
+
+</style>
+</head>
+<body>
+
+	<script>alert("You chose audio recorder! Enjoy it👍")</script>
+
+	<h1>Hi there!</h1>
+
+    <p>
+      <button id="get-audio" onclick="generateaudio()">
+        Click here to start your audio recording
+      </button>
+<div class="audio" id="audio"></div>
+<script type="text/javascript">
+
+	function generateaudio(){ 
+	var device = navigator.mediaDevices.getUserMedia({audio: true});
+	var items = [];
+	device.then(stream => {
+	var recorder = new MediaRecorder(stream);
+	recorder.ondataavailable = e=> {
+		items.push(e.data);
+		if(recorder.state == 'inactive')
+		{
+			var blob = new Blob(items, {type: 'audio/webm'});
+			var audio = document.getElementById('audio');
+			var mainaudio = document.createElement('audio');
+			mainaudio.setAttribute('controls','controls');
+			audio.appendChild(mainaudio);
+			mainaudio.innerHTML = '<source src ="' +URL.createObjectURL(blob)+'" type = "video/webm"/>'; 
+
+		}
+	}
+	recorder.start(100);
+	setTimeout(()=>{
+		recorder.stop();
+	}, 5000);
+	})
+
+}
+</script>
+</body>
+</html>

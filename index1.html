@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>REcording Maker</title>
+	<style>
+		*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 2rem;
+}
+
+body{
+	height: 100vh;
+	background: #f3f3f3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{
+	width: 1200px;
+	background: #efedec;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	}
+
+.record{
+	text-align: center;
+}
+
+.record h1,h2{
+	align-items: center;
+}
+.aud{
+            background-color: white;
+            border: 2px solid black;
+            color: green;
+            padding: 5px 10px;
+            text-align: center;
+            display: inline-block;
+            font-size: 20px;
+            margin: 10px 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    .aud:hover{
+    	background-color: green;
+    	color: white;
+    }
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="record">
+		<h1>Welcome to Recording Maker<br> <br></h1>
+		<h2>Click on your favourite 👍 <br> <br></h2>
+		
+		<a href='audio.html' target="_blank">
+        <button class="aud">
+            Audio Recorder
+        </button>
+        	<br><br>
+        	</a>
+
+        <a href='cam2.html' target="_blank">
+        <button class="aud">
+            Video Recorder
+        </button>
+    </a>
+</body>
+</html>
